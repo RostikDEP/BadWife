@@ -1,2 +1,7 @@
 .env
-**/__pycache__/ 
+**/__pycache__/
+build/
+dist/
+logs/
+start_bot.spec
+**record.avi
