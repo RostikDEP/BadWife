@@ -18,8 +18,10 @@ while running:
 	pygame.display.update()
 
 	background.Update()
-	player.Update(events)
 	enemy.Update()
+	player.Update(events)
+	config.speed += 1/80
+	
 
 	for event in events:
 		if event.type == pygame.QUIT:

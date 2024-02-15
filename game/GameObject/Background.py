@@ -7,7 +7,7 @@ class Background:
 		self.screen = screen
 		self.BackgroundLines = self.BackgroundLines(screen)
 		self.surface = pygame.Surface(config.SIZE)
-		self.backgroundSpeed = 3
+		self.backgroundSpeed = config.speed
 		self.animationStep = 0
 
 
@@ -47,6 +47,7 @@ class Background:
 
 
 		def FillLines(self):
+			self.backgroundSpeed = config.speed
 			self.surface.fill("white")
 			for y in range(config.SIZE[1] // self.tile_size + 1):
 				self.surface.blit(self.tiles[0], (0, y * self.tile_size))
