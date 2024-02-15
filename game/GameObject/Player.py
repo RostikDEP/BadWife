@@ -17,9 +17,9 @@ class Player:
 		self.animate_step_limit = 8 * self.animate_speed
 		self.right_position = (config.SIZE[0] - config.bg_tile_size * 2 - self.size[0], config.SIZE[1] - self.bottom_spase)
 		self.left_position = (config.bg_tile_size * 2, config.SIZE[1] - self.bottom_spase)
+		self.rect = self.surface.get_rect()
 
 		self.LoadImg()
-		self.rect = self.surface.get_rect()
 
 
 	def LoadImg(self):
@@ -42,6 +42,7 @@ class Player:
 
 
 	def UpdatePosition(self):
+		self.rect = self.surface.get_rect(topleft=self.position)
 		if self.direction:
 			self.position = self.right_position
 		else:

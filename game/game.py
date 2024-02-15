@@ -1,5 +1,5 @@
 import pygame
-from GameObject import Background, Player
+from GameObject import Background, Player, CrystalEnemy
 import config
 
 pygame.init()
@@ -9,6 +9,7 @@ clock = pygame.time.Clock()
 
 background = Background(screen)
 player = Player(screen)
+enemy = CrystalEnemy(screen, player)
 
 running = True
 while running:
@@ -18,6 +19,7 @@ while running:
 
 	background.Update()
 	player.Update(events)
+	enemy.Update()
 
 	for event in events:
 		if event.type == pygame.QUIT:
