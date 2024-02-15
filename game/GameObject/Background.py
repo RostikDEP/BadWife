@@ -26,7 +26,7 @@ class Background:
 	class BackgroundLines:
 		def __init__(self, screen):
 			self.surface = pygame.Surface(config.SIZE)
-			self.tile_size = 32
+			self.tile_size = config.bg_tile_size
 			self.tiles_img = []
 			self.tiles = []
 

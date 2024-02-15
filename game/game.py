@@ -1,5 +1,5 @@
 import pygame
-from GameObject import Background
+from GameObject import Background, Player
 import config
 
 pygame.init()
@@ -8,15 +8,18 @@ pygame.display.set_caption("Run Game")
 clock = pygame.time.Clock()
 
 background = Background(screen)
+player = Player(screen)
 
 running = True
 while running:
+	events = pygame.event.get()
 	clock.tick(config.FPS)
 	pygame.display.update()
 
 	background.Update()
+	player.Update(events)
 
-	for event in pygame.event.get():
+	for event in events:
 		if event.type == pygame.QUIT:
 			running = False
 			pygame.quit()
