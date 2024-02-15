@@ -24,6 +24,8 @@ tile2 = pygame.transform.scale(tile2, (bg_tile_size, bg_tile_size))
 
 background_lines = pygame.Surface(SIZE)
 
+enemy1 = pygame.transform.rotate(pygame.image.load("sprites/enemys/crystal.png"), 90)
+
 character = []
 for x in range(1, 9):
 	character.append(pygame.image.load(f"sprites/character/{x}.png"))
@@ -55,10 +57,22 @@ while running:
 		screen.blit(pygame.transform.flip(character9[anim_step // 5], 1, 0) ,(bg_tile_size * 2, SIZE[1] - 100))
 	if move_direction == "right":
 		screen.blit(pygame.transform.flip(character9[anim_step // 5], 0, 0) ,(SIZE[0] - bg_tile_size *2 - character_height, SIZE[1] - 100))
+	
+	# if enemy1.get_rect().colliderect(character9[anim_step // 5].get_rect()):
+	# 	running	= False
+	r1 = enemy1.get_rect()
+	r2 = character9[0].get_rect()
+
+	
+
 	if anim_step >= 7 * 5:
 		anim_step = 0
 	else:
 		anim_step += 1
+
+	screen.blit(enemy1, (SIZE[0] - 2*bg_tile_size - 57, bg_scroll))
+
+
 
 	pygame.display.update()
 	for event in pygame.event.get():
@@ -71,5 +85,3 @@ while running:
 					move_direction = "left"
 				elif move_direction == "left":
 					move_direction = "right"
-			elif event.key == pygame.K_d:
-				print("d")
